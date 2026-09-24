@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Private Call</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <main>
+    <section id="lobby" class="card">
+      <div class="brand">◉ Private Call</div>
+      <h1>Video calls for two.</h1>
+      <p>Private room links, screen sharing, and visible recording.</p>
+      <button id="create">Create private call</button>
+      <div class="join">
+        <input id="roomInput" placeholder="Room code" autocomplete="off" />
+        <button id="join">Join</button>
+      </div>
+      <p class="small">Camera/mic require permission. Production deployments must use HTTPS.</p>
+    </section>
+
+    <section id="call" hidden>
+      <header>
+        <div class="brand">◉ Private Call</div>
+        <div><span id="status">Connecting…</span> <span id="timer">00:00</span></div>
+      </header>
+
+      <div id="recordBanner" class="record-banner" hidden>● This call is being recorded</div>
+
+      <div class="videos">
+        <div class="videoBox">
+          <video id="remoteVideo" autoplay playsinline></video>
+          <span>Guest</span>
+        </div>
+        <div class="videoBox">
+          <video id="localVideo" autoplay muted playsinline></video>
+          <span>You</span>
+        </div>
+      </div>
+
+      <div class="invite">
+        <input id="inviteLink" readonly />
+        <button id="copy">Copy invite</button>
+      </div>
+
+      <nav>
+        <button id="mute">🎤 Mute</button>
+        <button id="camera">📹 Camera off</button>
+        <button id="share">🖥 Share screen</button>
+        <button id="record">⏺ Record</button>
+        <button id="leave" class="danger">☎ End</button>
+      </nav>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
